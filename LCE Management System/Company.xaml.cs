@@ -24,7 +24,7 @@ namespace LCE_Management_System
     public partial class Company : UserControl
     {
         private DataTable dataTable = new DataTable();
-        MySQL ob = new MySQL();
+        SQL ob = new SQL();
 
         public Company()
         {

@@ -26,7 +26,7 @@ namespace LCE_Management_System
         MySQL ob = new MySQL();
         DataTable dataTable = new DataTable();
         private int index = 0;
-       
+
 
         public Invoice()
         {
@@ -41,7 +41,7 @@ namespace LCE_Management_System
 
         public void CheckInvoice(int choice)
         {
-            switch(choice)
+            switch (choice)
             {
                 case 0:
                     ob.ShowAllInvoice().Fill(dataTable);
@@ -67,20 +67,17 @@ namespace LCE_Management_System
 
         private void comboBoxShow_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-                index = comboBoxShow.SelectedIndex;
-                if (dataGrid != null)
-                {
-                    dataGrid.ItemsSource = null;
-                    dataGrid.Items.Clear();
-                    dataGrid.Items.Refresh();
-                    dataTable.Clear();
+
+            index = comboBoxShow.SelectedIndex;
+            if (dataGrid != null)
+            {
+                ClearDataGrid();
 
                 if (FromDate.SelectedDate != null && ToDate.SelectedDate != null)
                 {
                     index += 3;
                 }
-                CheckInvoice(index); 
+                CheckInvoice(index);
             }
 
         }
@@ -91,7 +88,6 @@ namespace LCE_Management_System
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataRowView dataRow = (DataRowView)dataGrid.SelectedItem;
-            int index = dataGrid.CurrentCell.Column.DisplayIndex;
             string cellValue = dataRow.Row.ItemArray[0].ToString();
             string statusPaid = dataRow.Row.ItemArray[5].ToString();
 
@@ -103,10 +99,7 @@ namespace LCE_Management_System
                 if (result == MessageBoxResult.Yes)
                 {
                     ob.PayInvoice(cellValue);
-                    dataGrid.ItemsSource = null;
-                    dataGrid.Items.Clear();
-                    dataGrid.Items.Refresh();
-                    dataTable.Clear();
+                    ClearDataGrid();
                     CheckInvoice(index);
                 }
 
@@ -118,17 +111,13 @@ namespace LCE_Management_System
 
         private void FromDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(ToDate.SelectedDate != null)
+            if (ToDate.SelectedDate != null)
             {
-                index = comboBoxShow.SelectedIndex+3;
-            
-                dataGrid.ItemsSource = null;
-                dataGrid.Items.Clear();
-                dataGrid.Items.Refresh();
-                dataTable.Clear();
+                index = comboBoxShow.SelectedIndex + 3;
+                ClearDataGrid();
                 CheckInvoice(index);
             }
-            
+
         }
 
         private void ToDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -136,14 +125,25 @@ namespace LCE_Management_System
             if (FromDate.SelectedDate != null)
             {
                 index = comboBoxShow.SelectedIndex + 3;
-
-                dataGrid.ItemsSource = null;
-                dataGrid.Items.Clear();
-                dataGrid.Items.Refresh();
-                dataTable.Clear();
+                ClearDataGrid();
                 CheckInvoice(index);
             }
 
+        }
+
+        private void searchBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
+        private void ClearDataGrid()
+        {
+
+            dataGrid.ItemsSource = null;
+            dataGrid.Items.Clear();
+            dataGrid.Items.Refresh();
+            dataTable.Clear();
         }
     }
 }

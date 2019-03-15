@@ -10,11 +10,11 @@
     <Grid Background="#303030">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width = "*" />
-            <ColumnDefinition Width = "auto"/>
+            <ColumnDefinition Width = "*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Foreground="White">
 
@@ -23,9 +23,19 @@
                 
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="RM" LabelFormatter="{Binding Formatter}" Foreground="White"></lvc:Axis>
+                <lvc:Axis Title="RM" LabelFormatter="{Binding Formatter}" Foreground="White" ></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
+        <TextBlock  x:Name="DisplayCountOfInvoice" Grid.Column="1" Grid.Row="0" Text="Retrieving Data..." Foreground="#1585B5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="80">
+        </TextBlock>
+        <TextBlock  x:Name="DisplayCountOfInvoice2" Grid.Column="1" Grid.Row="0" Text="Invoice created in this month!" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0" FontSize="30" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Not yet implemented" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+        </TextBlock>
+        <TextBlock x:Name="DisplayBusiness"  Grid.Column="1" Grid.Row="1" Text="Retrieving Data..."  Foreground="#1585B5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="80">
+        </TextBlock>
+        <TextBlock x:Name="DisplayBusiness2"  Grid.Column="1" Grid.Row="1" Text="Total amount of invoice created in this month!"  Foreground="White"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0" FontSize="20" TextWrapping="Wrap">
+        </TextBlock>
     </Grid>
 
 </UserControl>
