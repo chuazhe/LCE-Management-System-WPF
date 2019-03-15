@@ -103,6 +103,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Resources\MySQL.cs" />
+    <Compile Include="Resources\SQL.cs" />
     <Page Include="Company.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

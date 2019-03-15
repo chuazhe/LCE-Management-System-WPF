@@ -29,17 +29,41 @@ namespace LCE_Management_System
         {
             InitializeComponent();
             SumOfInvoicePriceColumn();
+            CountCurrentMonthInvoice();
+            CountCurrentMonthBusiness();
+
 
         }
+
+        public void CountCurrentMonthBusiness()
+        {
+            string business = ob.ReturnBusiness();
+            if (String.IsNullOrEmpty(business))
+            {
+                business = "0";
+            }
+            DisplayBusiness.Text = "RM "+business;
+        }
+
+        public void CountCurrentMonthInvoice()
+        {
+            DisplayCountOfInvoice.Text = ob.ReturnCountOfInvoice();
+
+        }
+
+
         public void SumOfInvoicePriceColumn()
         {
             SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
-                    
+
                     Title = "Unpaid Invoice",
-                    Values = new ChartValues<double> { ob.ReturnSum()}
+                    Values = new ChartValues<double> { ob.ReturnSum()},
+                    DataLabels=false,
+                    
+                    
                 }
 };
 
@@ -56,7 +80,7 @@ namespace LCE_Management_System
             */
 
             //Formatter = value => value.ToString("N");
-            Labels = new[] { "Total"};
+            Labels = new[] { "Total Amount of Unpaid Invoice"};
 
 
             DataContext = this;

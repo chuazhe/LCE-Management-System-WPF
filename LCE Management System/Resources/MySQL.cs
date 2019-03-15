@@ -13,6 +13,24 @@ namespace LCE_Management_System.Resources
         private static string connString = "Server=localhost;Uid=root;Pwd=cHz&XF$aSKmJ;database=testing_server";
         private MySqlConnection conn = new MySqlConnection(connString);
 
+        public bool CheckDb()
+        {
+            bool isDbOnline;
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(connString);
+                conn.Open();
+                conn.Close();
+                isDbOnline = true;
+            }
+            catch (Exception e)
+            {
+                isDbOnline = false;
+                MessageBox.Show("Database is not connected!");
+                MessageBox.Show("Error:"+ e);
+            }
+            return isDbOnline;
+        }
 
 
         public MySqlDataAdapter ShowAllInvoice()
@@ -28,6 +46,7 @@ namespace LCE_Management_System.Resources
                     cmd.Dispose();
                     conn.Close();
                     return da;
+
                 }
             }
         }
@@ -171,8 +190,52 @@ namespace LCE_Management_System.Resources
 
                 }
             }
-            
 
+        }
+
+        public string ReturnCountOfInvoice()
+        {
+            using (conn)
+            {
+                conn.Open();
+                using (MySqlCommand cmd =
+                    new MySqlCommand("SELECT COUNT(*) FROM INVOICE WHERE MONTH(InvoiceDate) = @currentMonth AND YEAR(InvoiceDate)=@currentYear; ", conn))
+                {
+                    string sMonth = DateTime.Now.ToString("MM");
+                    string sYear = DateTime.Now.ToString("yyyy");
+                    cmd.Parameters.AddWithValue("@currentMonth", sMonth);
+                    cmd.Parameters.AddWithValue("@currentYear", sYear);
+                    //add whatever parameters you required to update here
+                    string countOfInvoice = (cmd.ExecuteScalar()).ToString();
+                    cmd.Dispose();
+                    conn.Close();
+                    return countOfInvoice;
+
+                }
+            }
+
+        }
+
+        public string ReturnBusiness()
+        {
+            using (conn)
+            {
+                conn.Open();
+                using (MySqlCommand cmd =
+                    new MySqlCommand("SELECT SUM(InvoicePrice) FROM INVOICE WHERE MONTH(InvoiceDate) = @currentMonth AND YEAR(InvoiceDate)=@currentYear; ", conn))
+                {
+                    string sMonth = DateTime.Now.ToString("MM");
+                    string sYear = DateTime.Now.ToString("yyyy");
+                    cmd.Parameters.AddWithValue("@currentMonth", sMonth);
+                    cmd.Parameters.AddWithValue("@currentYear", sYear);
+                    //add whatever parameters you required to update here
+                    string countOfInvoice = (cmd.ExecuteScalar()).ToString();
+                    cmd.Dispose();
+                    conn.Close();
+                    return countOfInvoice;
+
+                }
+            }
 
         }
 

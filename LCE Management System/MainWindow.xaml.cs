@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LCE_Management_System.Resources;
 
 namespace LCE_Management_System
 {
@@ -23,11 +24,11 @@ namespace LCE_Management_System
     /// </summary>
     public partial class MainWindow : Window
     {
-        string connString = "Server=localhost;Uid=root;Pwd=cHz&XF$aSKmJ;database=testing_server";
-        string VERSION = "1.01";
+        string VERSION = "1.02";
         Home homeUserControl = new Home();
         Invoice invoiceUserControl = new Invoice();
         Company companyUserControl = new Company();
+        SQL ob = new SQL();
 
 
         public MainWindow()
@@ -41,18 +42,11 @@ namespace LCE_Management_System
 
         private void CheckDb()
         {
-            try
+            if (ob.CheckDb())
             {
-                MySqlConnection conn = new MySqlConnection(connString);
-                conn.Open();
                 dbStatus.Foreground = Brushes.LightGreen;
-                conn.Close();
             }
-            catch (Exception e)
-            {
-                dbStatus.Foreground = Brushes.Red;
-                MessageBox.Show("Database is not connected!");
-            }
+
         }
 
         private void Home_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -70,38 +64,10 @@ namespace LCE_Management_System
             frameDisplay.Navigate(invoiceUserControl);
         }
 
-  
-
         private void Company_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             frameDisplay.Navigate(companyUserControl);
         }
-        /*
-private void btnInvoice_Click(object sender, RoutedEventArgs e)
-{
-if (connDb)
-{
-MessageBox.Show("Invoice");
-
-}
-else
-{
-MessageBox.Show("Not Connected to the Database!", "Error");
-}
-}
-
-private void btnCompany_Click(object sender, RoutedEventArgs e)
-{
-if (connDb)
-{
-MessageBox.Show("Company");
-
-}
-else
-{
-MessageBox.Show("Not Connected to the Database!", "Error");
-}
-}*/
     }
     
 }
