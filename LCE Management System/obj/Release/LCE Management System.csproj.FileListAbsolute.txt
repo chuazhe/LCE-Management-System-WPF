@@ -1,0 +1,33 @@
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LCE Management System.exe.config
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LCE Management System.exe
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LCE Management System.pdb
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\Google.Protobuf.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LiveCharts.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LiveCharts.Wpf.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\MaterialDesignColors.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\MaterialDesignThemes.Wpf.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\MySql.Data.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\Google.Protobuf.xml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LiveCharts.pdb
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LiveCharts.xml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LiveCharts.Wpf.pdb
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\LiveCharts.Wpf.xml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\MaterialDesignThemes.Wpf.pdb
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\MaterialDesignThemes.Wpf.xml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Release\MySql.Data.xml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\Company.g.cs
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\Home.g.cs
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\Invoice.g.cs
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\MainWindow.g.cs
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\App.g.cs
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\LCE Management System_MarkupCompile.cache
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\LCE Management System_MarkupCompile.lref
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\Company.baml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\Home.baml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\Invoice.baml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\MainWindow.baml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\LCE Management System.g.resources
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\LCE_Management_System.Properties.Resources.resources
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\LCE Management System.csproj.GenerateResource.Cache
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\LCE Management System.exe
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Release\LCE Management System.pdb

@@ -2,10 +2,16 @@ C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LC
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LCE Management System.exe
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LCE Management System.pdb
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\Google.Protobuf.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.dll
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.Wpf.dll
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MaterialDesignColors.dll
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MySql.Data.dll
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\Google.Protobuf.xml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.pdb
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.xml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MySql.Data.xml
@@ -26,9 +32,3 @@ C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LC
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.exe
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.pdb
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csprojResolveAssemblyReference.cache
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.dll
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.Wpf.dll
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.pdb
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.xml
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.Wpf.pdb
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\LiveCharts.Wpf.xml

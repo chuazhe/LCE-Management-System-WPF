@@ -31,8 +31,6 @@ namespace LCE_Management_System
             SumOfInvoicePriceColumn();
             CountCurrentMonthInvoice();
             CountCurrentMonthBusiness();
-
-
         }
 
         public void CountCurrentMonthBusiness()

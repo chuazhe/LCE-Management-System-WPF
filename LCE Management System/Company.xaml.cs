@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using LCE_Management_System.Resources;
+using System.Data.SqlClient;
+using System.Threading;
 
 namespace LCE_Management_System
 {
@@ -29,8 +31,9 @@ namespace LCE_Management_System
         public Company()
         {
             InitializeComponent();
-
             // this will query your database and return the result to your datatable
+            int milliseconds = 2000;
+            Thread.Sleep(milliseconds);
             ob.ShowAllCompany().Fill(dataTable);
             dataGrid.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dataTable });
         }
