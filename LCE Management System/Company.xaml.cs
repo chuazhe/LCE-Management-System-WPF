@@ -32,8 +32,6 @@ namespace LCE_Management_System
         {
             InitializeComponent();
             // this will query your database and return the result to your datatable
-            int milliseconds = 2000;
-            Thread.Sleep(milliseconds);
             ob.ShowAllCompany().Fill(dataTable);
             dataGrid.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dataTable });
         }

@@ -47,7 +47,7 @@ namespace LCE_Management_System.Resources
             try
             {
                 con = new SqlConnection(connString);
-                cmd = new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId", con);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate,'%d-MM-yyyy') As DateA,Company.CompanyName As NameCompany,InvoicePrice, FORMAT(InvoiceDueDate,'%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId", con);
                 con.Open();
                 da = new SqlDataAdapter(cmd);
             }
@@ -65,7 +65,7 @@ namespace LCE_Management_System.Resources
             try
             {
                 con = new SqlConnection(connString);
-                cmd = new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate, '%d-%m-%y') As DateA, Company.CompanyName As NameCompany, InvoicePrice, DATE_FORMAT(InvoiceDueDate, '%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE(InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE(InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
                 con.Open();
                 da = new SqlDataAdapter(cmd);
             }
@@ -85,7 +85,7 @@ namespace LCE_Management_System.Resources
             try
             {
                 con = new SqlConnection(connString);
-                cmd = new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='Y'", con);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate,'%d-MM-yyyy') As DateA,Company.CompanyName As NameCompany,InvoicePrice, FORMAT(InvoiceDueDate,'%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='Y'", con);
                 con.Open();
                 da = new SqlDataAdapter(cmd);
             }
@@ -102,7 +102,7 @@ namespace LCE_Management_System.Resources
             try
             {
                 con = new SqlConnection(connString);
-                cmd = new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate, '%d-%m-%y') As DateA, Company.CompanyName As NameCompany, InvoicePrice, DATE_FORMAT(InvoiceDueDate, '%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE StatusPaid = 'Y' AND(InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE StatusPaid = 'Y' AND(InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
                 con.Open();
                 da = new SqlDataAdapter(cmd);
             }
@@ -119,7 +119,7 @@ namespace LCE_Management_System.Resources
             try
             {
                 con = new SqlConnection(connString);
-                cmd = new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate, '%d-%m-%y') As DateA, Company.CompanyName As NameCompany, InvoicePrice, DATE_FORMAT(InvoiceDueDate, '%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE StatusPaid = 'N'", con);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE StatusPaid = 'N'", con);
                 con.Open();
                 da = new SqlDataAdapter(cmd);
             }
@@ -136,7 +136,7 @@ namespace LCE_Management_System.Resources
             try
             {
                 con = new SqlConnection(connString);
-                cmd = new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='N' AND (InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate,'%d-MM-yyyy') As DateA,Company.CompanyName As NameCompany,InvoicePrice, FORMAT(InvoiceDueDate,'%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='N' AND (InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
                 con.Open();
                 da = new SqlDataAdapter(cmd);
             }
@@ -234,23 +234,44 @@ namespace LCE_Management_System.Resources
 
         public string ReturnBusiness()
         {
+            string countOfInvoice = "";
             try
             {
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("SELECT SUM(InvoicePrice) FROM INVOICE WHERE MONTH(InvoiceDate) = @currentMonth AND YEAR(InvoiceDate)=@currentYear; ", con);
+                con.Open();
                 string sMonth = DateTime.Now.ToString("MM");
                 string sYear = DateTime.Now.ToString("yyyy");
                 cmd.Parameters.AddWithValue("@currentMonth", sMonth);
                 cmd.Parameters.AddWithValue("@currentYear", sYear);
                 //add whatever parameters you required to update here
-                string countOfInvoice = (cmd.ExecuteScalar()).ToString();
-                cmd.Dispose();
-                con.Close();
-                return countOfInvoice;
+                countOfInvoice= (cmd.ExecuteScalar()).ToString();
+
             }
             finally
             {
                 con.Close();
                 cmd.Dispose();
             }
+            return countOfInvoice;
+        }
+
+        public SqlDataAdapter ShowCompanyInvoices(string companyId)
+        {
+            try
+            {
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, InvoiceDate, Company.CompanyName As NameCompany, InvoicePrice, InvoiceDueDate, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE Invoice.CompanyId = @CompanyId", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@CompanyId", companyId);
+                da = new SqlDataAdapter(cmd);
+            }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return da;
         }
 
         public void ShowSQLMessageBox(int result)
@@ -266,6 +287,8 @@ namespace LCE_Management_System.Resources
             }
 
         }
+
+
 
     }
 }
