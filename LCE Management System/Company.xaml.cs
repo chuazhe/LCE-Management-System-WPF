@@ -33,7 +33,17 @@ namespace LCE_Management_System
             InitializeComponent();
             // this will query your database and return the result to your datatable
             ob.ShowAllCompany().Fill(dataTable);
-            dataGrid.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dataTable });
+            dataGrid3.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dataTable });
+        }
+
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dataGrid3.SelectedItem;
+            string cellValue = dataRow.Row.ItemArray[0].ToString();
+            CompanyInvoice w2 = new CompanyInvoice(cellValue);
+            w2.Show();
+
         }
     }
 

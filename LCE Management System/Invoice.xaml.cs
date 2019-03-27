@@ -23,7 +23,7 @@ namespace LCE_Management_System
     /// </summary>
     public partial class Invoice : UserControl
     {
-        MySQL ob = new MySQL();
+        SQL ob = new SQL();
         DataTable dataTable = new DataTable();
         private int index = 0;
 
@@ -34,7 +34,7 @@ namespace LCE_Management_System
             // this will query your database and return the result to your datatable
             ob.ShowAllInvoice().Fill(dataTable);
             dataGrid.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dataTable });
-            (dataGrid.ItemsSource as DataView).Sort = "DateA DESC";
+            (dataGrid.ItemsSource as DataView).Sort = "InvoiceId DESC";
             FromDate.SelectedDate = null;
             ToDate.SelectedDate = null;
         }

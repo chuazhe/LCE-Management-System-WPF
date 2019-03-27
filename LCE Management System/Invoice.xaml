@@ -22,7 +22,7 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="image" Grid.Column="0" HorizontalAlignment="Right" Height="140" Source="./Resources/Invoice.jpg" Stretch="Fill" Margin="20,0,20,0" VerticalAlignment="Bottom"/>
+        <Image x:Name="image" Grid.Column="0"  Height="140" Width="800" Source="./Resources/Invoice.jpg" Stretch="Fill" Margin="20,0,20,0" VerticalAlignment="Bottom"/>
         <Button x:Name="btnAddInvoice" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Background="Transparent" Margin="10" BorderBrush="Transparent" >
             <StackPanel >
                 <materialDesign:PackIcon Kind="PlusCircle" Width="70" Height="70" Foreground="#1585B5" VerticalAlignment="Center" HorizontalAlignment='Center'/>

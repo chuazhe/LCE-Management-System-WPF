@@ -14,6 +14,7 @@ namespace LCE_Management_System.Resources
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter da;
+        string[] companyDetails;
         bool isDbOnline;
 
         public bool CheckDb()
@@ -212,6 +213,7 @@ namespace LCE_Management_System.Resources
 
         public string ReturnCountOfInvoice()
         {
+            string countOfInvoice = string.Empty;
             try
             {
                 con = new SqlConnection(connString);
@@ -222,19 +224,22 @@ namespace LCE_Management_System.Resources
                 cmd.Parameters.AddWithValue("@currentMonth", sMonth);
                 cmd.Parameters.AddWithValue("@currentYear", sYear);
                 //add whatever parameters you required to update here
-                string countOfInvoice = (cmd.ExecuteScalar()).ToString();
-                return countOfInvoice;
+                countOfInvoice = (cmd.ExecuteScalar()).ToString();
+                
             }
             finally
             {
                 con.Close();
                 cmd.Dispose();
+                
             }
+            return countOfInvoice;
+
         }
 
         public string ReturnBusiness()
         {
-            string countOfInvoice = "";
+            string countOfInvoice = string.Empty;
             try
             {
                 con = new SqlConnection(connString);
@@ -261,7 +266,7 @@ namespace LCE_Management_System.Resources
             try
             {
                 con = new SqlConnection(connString);
-                cmd = new SqlCommand("select InvoiceId, InvoiceDate, Company.CompanyName As NameCompany, InvoicePrice, InvoiceDueDate, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE Invoice.CompanyId = @CompanyId", con);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE Invoice.CompanyId = @CompanyId", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("@CompanyId", companyId);
                 da = new SqlDataAdapter(cmd);
@@ -272,6 +277,30 @@ namespace LCE_Management_System.Resources
                 cmd.Dispose();
             }
             return da;
+        }
+
+
+
+        public string[] GetCompanyDetails(string companyId)
+        {
+            try
+            {
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select CompanyId, CompanyName, CompanyAddressOne, CompanyAddressTwo, CompanyAddressThree FROM Company WHERE CompanyId = @CompanyId", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@CompanyId", companyId);
+             SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read()) {
+              
+                companyDetails =new string[5] { reader.GetInt32(0).ToString(), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)};
+                  }
+            }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return companyDetails;
         }
 
         public void ShowSQLMessageBox(int result)

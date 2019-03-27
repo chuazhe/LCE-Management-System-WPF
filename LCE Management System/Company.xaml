@@ -20,7 +20,7 @@
         <RowDefinition Height="auto"/>
         <RowDefinition Height="2*"/>
     </Grid.RowDefinitions>
-        <Image x:Name="image" Grid.Column="0" HorizontalAlignment="Right" Height="140" Source="./Resources/companybanner.jpg" Stretch="Fill" Margin="20,0,20,0" VerticalAlignment="Bottom"/>
+        <Image x:Name="image" Grid.Column="0" Height="140" Width="800" Source="./Resources/companybanner.jpg" Stretch="Fill" Margin="20,0,20,0" VerticalAlignment="Bottom"/>
         <Button x:Name="btnAddCompany" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Background="Transparent" Margin="10">
             <StackPanel >
                 <materialDesign:PackIcon Kind="PlusCircle" Width="70" Height="70" Foreground="#1585B5" VerticalAlignment="Center" HorizontalAlignment='Center'/>
@@ -36,11 +36,16 @@
         </ComboBox>
         <TextBox x:Name="searchText" Grid.Column="4" Height="23" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="TextBox" Width="120" Margin="10 20 10 0"/>
         <Border Grid.Row="0" Grid.ColumnSpan="5" BorderBrush="#1585B5" BorderThickness="0,0,0,4" Height="140" VerticalAlignment="Top"/>
-        <DataGrid MinHeight="500" MinWidth="900" Grid.Row="1" Grid.ColumnSpan="5" x:Name="dataGrid" HorizontalAlignment="Center" VerticalAlignment="Center"  IsReadOnly="True" AutoGenerateColumns="False" Margin="20,20,20,20">
+        <DataGrid MinHeight="500" MinWidth="1000" Grid.Row="1" Grid.ColumnSpan="5" x:Name="dataGrid3" HorizontalAlignment="Center" VerticalAlignment="Center"  IsReadOnly="True" AutoGenerateColumns="False" Margin="20,0,20,0" Padding="5,0,5,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CompanyId}" Header="Company Id Number" Width="*"/>
                 <DataGridTextColumn Binding="{Binding CompanyName}" Width="4*" Header="Company Name"/>
-            </DataGrid.Columns> 
+            </DataGrid.Columns>
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
         </DataGrid>
     </Grid>
 </UserControl>

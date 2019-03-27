@@ -28,7 +28,7 @@ namespace LCE_Management_System
         Home homeUserControl = new Home();
         Invoice invoiceUserControl = new Invoice();
         Company companyUserControl = new Company();
-        MySQL ob = new MySQL();
+        SQL ob = new SQL();
 
 
         public MainWindow()

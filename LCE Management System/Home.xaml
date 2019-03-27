@@ -36,6 +36,8 @@
         </TextBlock>
         <TextBlock x:Name="DisplayBusiness2"  Grid.Column="1" Grid.Row="1" Text="Total amount of invoice created in this month!"  Foreground="White"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0" FontSize="20" TextWrapping="Wrap">
         </TextBlock>
+
+        <Button Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="20" Foreground="Black" Click="Button_Click"> Refresh</Button>
     </Grid>
 
 </UserControl>

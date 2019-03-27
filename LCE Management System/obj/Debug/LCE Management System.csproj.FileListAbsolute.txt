@@ -16,6 +16,7 @@ C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LC
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\bin\Debug\MySql.Data.xml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\Company.g.cs
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\CompanyInvoice.g.cs
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\Home.g.cs
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\Invoice.g.cs
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\MainWindow.g.cs
@@ -23,6 +24,7 @@ C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LC
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System_MarkupCompile.cache
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System_MarkupCompile.lref
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\Company.baml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\CompanyInvoice.baml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\Home.baml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\Invoice.baml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\MainWindow.baml
@@ -31,4 +33,3 @@ C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LC
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csproj.GenerateResource.Cache
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.exe
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.pdb
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csprojResolveAssemblyReference.cache
