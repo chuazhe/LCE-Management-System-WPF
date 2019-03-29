@@ -24,15 +24,20 @@ namespace LCE_Management_System
     /// </summary>
     public partial class Home : UserControl
     {
-        MySQL ob = new MySQL();
+        SQL ob = new SQL();
+
         public Home()
         {
             InitializeComponent();
+            Refresh();
+
+        }
+
+        private void Refresh()
+        {
             SumOfInvoicePriceColumn();
             CountCurrentMonthInvoice();
             CountCurrentMonthBusiness();
-
-
         }
 
         public void CountCurrentMonthBusiness()
@@ -91,5 +96,11 @@ public SeriesCollection SeriesCollection { get; set; }
 public string[] Labels { get; set; }
 public Func<double, string> Formatter { get; set; }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("still doing....");
+            Refresh();
+
+        }
     }
 }

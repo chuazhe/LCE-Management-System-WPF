@@ -11,25 +11,33 @@ namespace LCE_Management_System.Resources
     class SQL
     {
         private static string connString = @"Data Source=40NY1G2\SQLEXPRESS;Initial Catalog = LCE; Integrated Security = True";
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        string[] companyDetails;
+        bool isDbOnline;
 
         public bool CheckDb()
         {
-            bool isDbOnline;
             try
             {
-                using (SqlConnection myCon = new SqlConnection(connString))
-                {
-                    myCon.Open();
-                    myCon.Close();
-                    isDbOnline = true;
+                con = new SqlConnection(connString);
+                con.Open();
+                isDbOnline = true;
 
-                }
+
             }
+
             catch (Exception e)
             {
                 isDbOnline = false;
                 MessageBox.Show("Database is not connected!");
                 MessageBox.Show("Error:" + e);
+            }
+            finally
+            {
+                con.Close();
+
             }
             return isDbOnline;
         }
@@ -37,208 +45,262 @@ namespace LCE_Management_System.Resources
 
         public SqlDataAdapter ShowAllInvoice()
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                   new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId", myCon))
-                {
-                    // create data adapter
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    cmd.Dispose();
-                    myCon.Close();
-                    return da;
-
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate,'%d-MM-yyyy') As DateA,Company.CompanyName As NameCompany,InvoicePrice, FORMAT(InvoiceDueDate,'%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId", con);
+                con.Open();
+                da = new SqlDataAdapter(cmd);
             }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+
+            }
+            return da;
         }
 
         public SqlDataAdapter ShowAllInvoiceWithDate(string FromDate, string ToDate)
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                   new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE (InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", myCon))
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    cmd.Dispose();
-                    myCon.Close();
-                    return da;
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE(InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
+                con.Open();
+                da = new SqlDataAdapter(cmd);
             }
+            finally
+            {
+
+                con.Close();
+                cmd.Dispose();
+
+            }
+            return da;
         }
 
 
         public SqlDataAdapter ShowPaidInvoice()
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                    new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='Y'", myCon))
-                {
-                    // create data adapter
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    cmd.Dispose();
-                    myCon.Close();
-                    return da;
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate,'%d-MM-yyyy') As DateA,Company.CompanyName As NameCompany,InvoicePrice, FORMAT(InvoiceDueDate,'%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='Y'", con);
+                con.Open();
+                da = new SqlDataAdapter(cmd);
             }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return da;
         }
 
         public SqlDataAdapter ShowPaidInvoiceWithDate(string FromDate, string ToDate)
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                   new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='Y' AND (InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", myCon))
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    cmd.Dispose();
-                    myCon.Close();
-                    return da;
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE StatusPaid = 'Y' AND(InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
+                con.Open();
+                da = new SqlDataAdapter(cmd);
             }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return da;
         }
 
         public SqlDataAdapter ShowUnpaidInvoice()
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                    new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='N'", myCon))
-                {
-                    // create data adapter
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    cmd.Dispose();
-                    myCon.Close();
-                    return da;
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE StatusPaid = 'N'", con);
+                con.Open();
+                da = new SqlDataAdapter(cmd);
             }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return da;
         }
 
         public SqlDataAdapter ShowUnpaidInvoiceWithDate(string FromDate, string ToDate)
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                   new SqlCommand("select InvoiceId, DATE_FORMAT(InvoiceDate,'%d-%m-%y') As DateA,Company.CompanyName As NameCompany,InvoicePrice, DATE_FORMAT(InvoiceDueDate,'%d-%m-%y') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='N' AND (InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", myCon))
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    cmd.Dispose();
-                    myCon.Close();
-                    return da;
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate,'%d-MM-yyyy') As DateA,Company.CompanyName As NameCompany,InvoicePrice, FORMAT(InvoiceDueDate,'%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId=Company.CompanyId WHERE StatusPaid='N' AND (InvoiceDate between '" + FromDate + "' AND '" + ToDate + "')", con);
+                con.Open();
+                da = new SqlDataAdapter(cmd);
             }
+            finally
+            {
+
+                con.Close();
+                cmd.Dispose();
+            }
+            return da;
         }
 
 
         public SqlDataAdapter ShowAllCompany()
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                    new SqlCommand("SELECT CompanyId,CompanyName FROM Company", myCon))
-                {
-                    // create data adapter
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    cmd.Dispose();
-                    myCon.Close();
-                    return da;
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("SELECT CompanyId, CompanyName FROM Company", con);
+                con.Open();
+                da = new SqlDataAdapter(cmd);
             }
+            finally
+            {
+
+                con.Close();
+                cmd.Dispose();
+
+            }
+            return da;
+
         }
 
         public void PayInvoice(string InvoiceId)
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                    new SqlCommand("UPDATE Invoice SET StatusPaid=@Yes WHERE InvoiceId=@Id", myCon))
-                {
-                    cmd.Parameters.AddWithValue("@Yes", "Y");
-                    cmd.Parameters.AddWithValue("@Id", InvoiceId);
-                    //add whatever parameters you required to update here
-                    int result = cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-                    myCon.Close();
-                    ShowSQLMessageBox(result);
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("UPDATE Invoice SET StatusPaid=@Yes WHERE InvoiceId=@Id", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@Yes", "Y");
+                cmd.Parameters.AddWithValue("@Id", InvoiceId);
+                //add whatever parameters you required to update here
+                int result = cmd.ExecuteNonQuery();
+                ShowSQLMessageBox(result);
             }
-
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
 
         }
 
         public double ReturnSum()
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                    new SqlCommand("SELECT SUM(InvoicePrice) FROM Invoice WHERE StatusPaid=@No", myCon))
-                {
-                    cmd.Parameters.AddWithValue("@No", "N");
-                    //add whatever parameters you required to update here
-                    double mySum = Convert.ToDouble(cmd.ExecuteScalar());
-                    cmd.Dispose();
-                    myCon.Close();
-                    return mySum;
-
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("SELECT SUM(InvoicePrice) FROM Invoice WHERE StatusPaid=@No", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@No", "N");
+                //add whatever parameters you required to update here
+                double mySum = Convert.ToDouble(cmd.ExecuteScalar());
+                return mySum;
             }
-
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
         }
 
         public string ReturnCountOfInvoice()
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            string countOfInvoice = string.Empty;
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                    new SqlCommand("SELECT COUNT(*) FROM INVOICE WHERE MONTH(InvoiceDate) = @currentMonth AND YEAR(InvoiceDate)=@currentYear; ", myCon))
-                {
-                    string sMonth = DateTime.Now.ToString("MM");
-                    string sYear = DateTime.Now.ToString("yyyy");
-                    cmd.Parameters.AddWithValue("@currentMonth", sMonth);
-                    cmd.Parameters.AddWithValue("@currentYear", sYear);
-                    //add whatever parameters you required to update here
-                    string countOfInvoice = (cmd.ExecuteScalar()).ToString();
-                    cmd.Dispose();
-                    myCon.Close();
-                    return countOfInvoice;
-
-                }
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("SELECT COUNT(*) FROM INVOICE WHERE MONTH(InvoiceDate) = @currentMonth AND YEAR(InvoiceDate)=@currentYear; ", con);
+                con.Open();
+                string sMonth = DateTime.Now.ToString("MM");
+                string sYear = DateTime.Now.ToString("yyyy");
+                cmd.Parameters.AddWithValue("@currentMonth", sMonth);
+                cmd.Parameters.AddWithValue("@currentYear", sYear);
+                //add whatever parameters you required to update here
+                countOfInvoice = (cmd.ExecuteScalar()).ToString();
+                
             }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+                
+            }
+            return countOfInvoice;
 
         }
 
         public string ReturnBusiness()
         {
-            using (SqlConnection myCon = new SqlConnection(connString))
+            string countOfInvoice = string.Empty;
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd =
-                    new SqlCommand("SELECT SUM(InvoicePrice) FROM INVOICE WHERE MONTH(InvoiceDate) = @currentMonth AND YEAR(InvoiceDate)=@currentYear; ", myCon))
-                {
-                    string sMonth = DateTime.Now.ToString("MM");
-                    string sYear = DateTime.Now.ToString("yyyy");
-                    cmd.Parameters.AddWithValue("@currentMonth", sMonth);
-                    cmd.Parameters.AddWithValue("@currentYear", sYear);
-                    //add whatever parameters you required to update here
-                    string countOfInvoice = (cmd.ExecuteScalar()).ToString();
-                    cmd.Dispose();
-                    myCon.Close();
-                    return countOfInvoice;
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("SELECT SUM(InvoicePrice) FROM INVOICE WHERE MONTH(InvoiceDate) = @currentMonth AND YEAR(InvoiceDate)=@currentYear; ", con);
+                con.Open();
+                string sMonth = DateTime.Now.ToString("MM");
+                string sYear = DateTime.Now.ToString("yyyy");
+                cmd.Parameters.AddWithValue("@currentMonth", sMonth);
+                cmd.Parameters.AddWithValue("@currentYear", sYear);
+                //add whatever parameters you required to update here
+                countOfInvoice= (cmd.ExecuteScalar()).ToString();
 
-                }
             }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return countOfInvoice;
+        }
 
+        public SqlDataAdapter ShowCompanyInvoices(string companyId)
+        {
+            try
+            {
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select InvoiceId, FORMAT(InvoiceDate, '%d-MM-yyyy') As DateA, Company.CompanyName As NameCompany, InvoicePrice, FORMAT(InvoiceDueDate, '%d-MM-yyyy') AS DateB, StatusPaid FROM Invoice INNER JOIN Company ON Invoice.CompanyId = Company.CompanyId WHERE Invoice.CompanyId = @CompanyId", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@CompanyId", companyId);
+                da = new SqlDataAdapter(cmd);
+            }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return da;
+        }
+
+
+
+        public string[] GetCompanyDetails(string companyId)
+        {
+            try
+            {
+                con = new SqlConnection(connString);
+                cmd = new SqlCommand("select CompanyId, CompanyName, CompanyAddressOne, CompanyAddressTwo, CompanyAddressThree FROM Company WHERE CompanyId = @CompanyId", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@CompanyId", companyId);
+             SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read()) {
+              
+                companyDetails =new string[5] { reader.GetInt32(0).ToString(), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)};
+                  }
+            }
+            finally
+            {
+                con.Close();
+                cmd.Dispose();
+            }
+            return companyDetails;
         }
 
         public void ShowSQLMessageBox(int result)
@@ -254,6 +316,8 @@ namespace LCE_Management_System.Resources
             }
 
         }
+
+
 
     }
 }
