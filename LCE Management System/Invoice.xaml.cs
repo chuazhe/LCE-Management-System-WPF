@@ -31,12 +31,7 @@ namespace LCE_Management_System
         public Invoice()
         {
             InitializeComponent();
-            // this will query your database and return the result to your datatable
-            ob.ShowAllInvoice().Fill(dataTable);
-            dataGrid.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dataTable });
-            (dataGrid.ItemsSource as DataView).Sort = "InvoiceId DESC";
-            FromDate.SelectedDate = null;
-            ToDate.SelectedDate = null;
+            Refresh(); 
         }
 
         public void CheckInvoice(int choice)
@@ -133,17 +128,45 @@ namespace LCE_Management_System
 
         private void searchBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(searchText.Text !=null)
+            {
+                DataView dv = dataTable.DefaultView;
+                dv.RowFilter = string.Format("NameCompany like '%{0}%'", searchText.Text.Trim());
+                dataGrid.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dv.ToTable() });
+            }
 
 
         }
 
         private void ClearDataGrid()
         {
-
             dataGrid.ItemsSource = null;
             dataGrid.Items.Clear();
             dataGrid.Items.Refresh();
             dataTable.Clear();
+        }
+
+        private void Refresh()
+        {
+            ob.ShowAllInvoice().Fill(dataTable);
+            dataGrid.SetBinding(ItemsControl.ItemsSourceProperty, new System.Windows.Data.Binding { Source = dataTable });
+            (dataGrid.ItemsSource as DataView).Sort = "InvoiceId DESC";
+            FromDate.SelectedDate = null;
+            ToDate.SelectedDate = null;
+            comboBoxShow.SelectedIndex=0;
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            dataTable.DefaultView.RowFilter = string.Empty;
+            ClearDataGrid();
+            Refresh();
+            searchText.Text = string.Empty;
+        }
+
+        private void btnAddInvoice_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

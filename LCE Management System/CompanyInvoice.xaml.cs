@@ -82,11 +82,12 @@ namespace LCE_Management_System
 
         private void ClearDataGrid()
         {
-
             dataGrid2.ItemsSource = null;
             dataGrid2.Items.Clear();
             dataGrid2.Items.Refresh();
             dataTable.Clear();
         }
+
+
     }
 }
