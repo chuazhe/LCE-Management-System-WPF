@@ -102,11 +102,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCompany.xaml.cs">
+      <DependentUpon>AddCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddInvoice.xaml.cs">
+      <DependentUpon>AddInvoice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CompanyInvoice.xaml.cs">
       <DependentUpon>CompanyInvoice.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\MySQL.cs" />
     <Compile Include="Resources\SQL.cs" />
+    <Page Include="AddCompany.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Company.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

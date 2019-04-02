@@ -24,7 +24,7 @@ namespace LCE_Management_System
     /// </summary>
     public partial class MainWindow : Window
     {
-        string VERSION = "1.03";
+        string VERSION = "1.04";
         Home homeUserControl = new Home();
         Invoice invoiceUserControl = new Invoice();
         Company companyUserControl = new Company();
