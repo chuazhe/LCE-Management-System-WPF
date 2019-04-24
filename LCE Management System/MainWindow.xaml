@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid x:Name="GridBackground" Background="#55313131" Opacity="100" Margin="250,0,0,0">
-            <Frame x:Name="frameDisplay"/>
+            <Frame x:Name="frameDisplay" Navigated="FrameDisplay_Navigated"/>
         </Grid>
         <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="30" Height="30" Padding="0">
             <materialDesign:PackIcon Kind="Menu" Foreground="#FF313131"/>
@@ -27,12 +27,6 @@
             <StackPanel>
                 <Image Height="140" Source="./Resources/white testing.jpg" Stretch="Fill"/>
                 <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18" Background="Transparent" BorderThickness="0">
-                    <ListViewItem Height="45" Padding="0" PreviewMouseLeftButtonUp="Home_PreviewMouseLeftButtonUp">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Home" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Home" Margin="10" Foreground="White"/>
-                        </StackPanel>
-                    </ListViewItem>
                     <ListViewItem Height="45" Padding="0" PreviewMouseLeftButtonUp="Invoice_PreviewMouseLeftButtonUp">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Inbox" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>

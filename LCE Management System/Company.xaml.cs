@@ -49,7 +49,7 @@ namespace LCE_Management_System
 
         private void btnAddCompany_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Not Yet Implemented", "Info");
         }
 
         private void btnRefreshCompany_Click(object sender, RoutedEventArgs e)

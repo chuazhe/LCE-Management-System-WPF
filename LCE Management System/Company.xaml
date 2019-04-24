@@ -8,6 +8,7 @@
 
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1030">
+    
     <Grid Background="#303030">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width = "3*" />
@@ -33,8 +34,8 @@
                 <TextBlock HorizontalAlignment="Center" Foreground="#1585B5" FontSize="30">Refresh</TextBlock>
             </StackPanel>
         </Button>      
-        <TextBox x:Name="searchText" Grid.Column="4" Height="23" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="TextBox" Width="120" Margin="10 20 10 30"/>
-        <Button x:Name="searchBtn" Grid.Column="4" Width="100" Height="20" VerticalAlignment="Bottom" Click="searchBtn_Click">Search</Button>
+        <TextBox x:Name="searchText" Grid.Column="4" Height="23" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="TextBox" Width="120" Margin="10 20 10 50"/>
+        <Button x:Name="searchBtn" Grid.Column="4" Width="200" Height="20" Margin="20 0 20 20" VerticalAlignment="Bottom" Click="searchBtn_Click">Search with CompanyName</Button>
         <Border Grid.Row="0" Grid.ColumnSpan="5" BorderBrush="#1585B5" BorderThickness="0,0,0,4" Height="140" VerticalAlignment="Top"/>
         <DataGrid MinHeight="500" MinWidth="1000" Grid.Row="1" Grid.ColumnSpan="5" x:Name="dataGrid3" HorizontalAlignment="Center" VerticalAlignment="Center"  IsReadOnly="True" AutoGenerateColumns="False" Margin="20,0,20,0" Padding="5,0,5,0">
             <DataGrid.Columns>

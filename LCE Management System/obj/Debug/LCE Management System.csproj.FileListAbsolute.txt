@@ -33,8 +33,10 @@ C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LC
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csproj.GenerateResource.Cache
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.exe
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.pdb
-C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csprojResolveAssemblyReference.cache
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\AddInvoice.g.cs
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\AddInvoice.baml
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\AddCompany.g.cs
 C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\AddCompany.baml
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csprojAssemblyReference.cache
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csproj.CoreCompileInputs.cache
+C:\Users\weizhchu\Documents\Visual Studio 2015\Projects\LCE Management System\LCE Management System\obj\Debug\LCE Management System.csproj.CopyComplete

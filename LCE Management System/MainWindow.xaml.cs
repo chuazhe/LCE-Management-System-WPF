@@ -36,7 +36,7 @@ namespace LCE_Management_System
             InitializeComponent();
             CheckDb();
             frameDisplay.NavigationUIVisibility = NavigationUIVisibility.Hidden;
-            frameDisplay.Navigate(homeUserControl);
+            frameDisplay.Navigate(invoiceUserControl);
             
         }
 
@@ -67,6 +67,11 @@ namespace LCE_Management_System
         private void Company_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             frameDisplay.Navigate(companyUserControl);
+        }
+
+        private void FrameDisplay_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
     

@@ -166,11 +166,13 @@ namespace LCE_Management_System
 
         private void btnAddInvoice_Click(object sender, RoutedEventArgs e)
         {
+            /*
             AddInvoice wnd = new AddInvoice();
             wnd.Owner = Window.GetWindow(this);
             wnd.StartupLocation = WindowStartupLocation.CenterOwner;
             wnd.Show();
-
+            */
+            MessageBox.Show("Not Yet Implemented", "Info");
         }
     }
 }

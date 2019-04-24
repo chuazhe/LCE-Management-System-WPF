@@ -17,11 +17,15 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Label x:Name="label" Content="Company:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
-        <ComboBox x:Name="comboBox" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
-        <Label x:Name="label2" Content="Date:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
-        <DatePicker  x:Name="Date"  SelectedDate="{Binding Path=FromDate}" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Top">
+        <Label x:Name="label" Content="InvoiceNo:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
+        <Label x:Name="label2" Content="XXXX" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
+        <Label x:Name="label3" Content="Company:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
+ 
+        <ComboBox x:Name="comboBox" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
+        <Label x:Name="label4" Content="Date:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
+        <DatePicker  x:Name="Date"  SelectedDate="{Binding Path=FromDate}" Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Top">
             <DatePicker.Resources>
                 <Style TargetType="DatePickerTextBox">
                     <Setter Property="Control.Template">
@@ -36,10 +40,10 @@
                 </Style>
             </DatePicker.Resources>
         </DatePicker>
-        <Label x:Name="label3" Content="Price:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
-        <TextBox x:Name="textBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+        <Label x:Name="label5" Content="Price:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#1585B5"/>
+        <TextBox x:Name="textBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
 
-        <Button x:Name="submitBtn" Grid.Row="3" Grid.Column="1" Content="Submit" Margin="0,0,0,0" VerticalAlignment="Center" Width="75" Click="submitBtn_Click"/>
+        <Button x:Name="submitBtn" Grid.Row="4" Grid.Column="1" Content="Submit" Margin="0,0,0,0" VerticalAlignment="Center" Width="75" Click="submitBtn_Click"/>
 
 
     </Grid>
